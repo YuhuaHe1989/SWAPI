@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="style.css">
+<h2>SWAPI</h2>                                          
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Click to show planets
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li ng-repeat="planet in planetsFiltered track by $index">
+        <a href="#" ng-click="addPlanet($index, planet)">{{planet.name}}-{{$index + 1}}</a>
+      </li>
+    </ul>
+  </div>
+
+<div ng-hide="planets.length === 61">
+  <img src="http://www.businessbee.com/wp-content/uploads/24534/loading_home.gif">
+</div>
+<div ng-show="errorMessage">Data Fetch failed</div>
+
+<!-- <div class="box" ng-show="addname"> -->
+  {{addname}}
+<!-- </div> -->
+<swapi-resident></swapi-resident>
+
+
