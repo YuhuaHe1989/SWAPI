@@ -25,17 +25,17 @@ app.directive("swapiPlanetsSelector", function() {
             $scope.planets = allPlanets;
             $scope.planetsFiltered = $scope.planets.filter(function(planet) {
               if(planet.residents.length >= $scope.minresidents) return planet;
-            }); 
+            });
           }
         },function errorCallback(err) {
           $scope.errorMessage = "Data Fetch failed";
-        }); 
+        });
       }
 
         $scope.addPlanet = function(i) {
          $scope.addname = $scope.planetsFiltered[i].name;
 
-         var residentsOfPlanets = []; 
+         var residentsOfPlanets = [];
          $scope.planetsFiltered[i].residents.forEach(function(residentUrl) {
            $http({
               method: 'GET',
@@ -46,7 +46,7 @@ app.directive("swapiPlanetsSelector", function() {
                   $rootScope.$broadcast('CHANGE', residentsOfPlanets);
                }
             },function errorCallback(err) {
-              
+
             });
 
          })
@@ -73,11 +73,3 @@ app.directive("swapiResident", function() {
     }
   }
 });
-
-
-
-
-
-
-
-
